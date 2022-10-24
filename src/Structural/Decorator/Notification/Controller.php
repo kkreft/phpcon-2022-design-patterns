@@ -24,9 +24,8 @@ final class Controller
     public function send(string $message): void
     {
         $notifier = new EmailNotifier();
-        $notifier->send($message);
+        $notifier = new SmsNotifierWrapper($notifier);
 
-        $notifier = new SmsNotifier();
         $notifier->send($message);
     }
 }
