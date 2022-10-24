@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Composite;
 
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
-
 final class Controller
 {
     private const BASEPATH = '/src/Structural/Composite/data';
@@ -18,14 +15,11 @@ final class Controller
             self::BASEPATH . '/pending',
         ];
 
-        $totalSize = 0;
-        $directory = new RecursiveDirectoryIterator(dirname(__FILE__) . '/data');
-        foreach (new RecursiveIteratorIterator($directory) as $file) {
-            if($file->isFile()) {
-                $totalSize += $file->getSize();
-            }
+        $directory = new Directory();
+        foreach ($config as $path) {
+            $directory->addElement(new File($path));
         }
 
-        return $totalSize;
+        return $directory->getSize();
     }
 }
