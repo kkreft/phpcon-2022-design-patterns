@@ -23,7 +23,8 @@ final class Controller
     public function getDefaultDiscount(): float
     {
         $product = new BaseProduct();
+        $product = new DiscountDecorator($product);
 
-        return $product->getPrice() * 0.95;
+        return $product->getPrice();
     }
 }
