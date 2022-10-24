@@ -9,8 +9,15 @@ use RecursiveIteratorIterator;
 
 final class Controller
 {
+    private const BASEPATH = '/src/Structural/Composite/data';
+
     public function totalSize(): int
     {
+        $config = [
+            self::BASEPATH . '/measured',
+            self::BASEPATH . '/pending',
+        ];
+
         $totalSize = 0;
         $directory = new RecursiveDirectoryIterator('/src/Structural/Composite/data');
         foreach (new RecursiveIteratorIterator($directory) as $file) {
