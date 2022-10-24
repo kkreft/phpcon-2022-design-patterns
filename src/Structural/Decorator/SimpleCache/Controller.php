@@ -9,18 +9,19 @@ use DesignPatterns\Structural\Decorator\SimpleCache\Database\DataSource;
 final class Controller
 {
     private ProductProvider $productProvider;
-    private const USE_CACHE = false;
+    private const USE_CACHE = true;
 
     public function __construct() {
-        $this->productProvider = new BaseProduct(new DataSource());
+        if (self::USE_CACHE === false) {
+            $this->productProvider = new BaseProduct(new DataSource());
+        } else {
+            $productProvider = new BaseProduct(new DataSource());
+            $this->productProvider = new CacheProvider($productProvider);
+        }
     }
 
     public function getProductInfo(int $productId): void
     {
-        if (self::USE_CACHE === false) {
-            echo json_encode($this->productProvider->getDetails($productId));
-        } else {
-            echo json_encode($this->productProvider->getDetails($productId));
-        }
+        echo json_encode($this->productProvider->getDetails($productId));
     }
 }
