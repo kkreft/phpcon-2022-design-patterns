@@ -21,7 +21,7 @@ final class Controller
     /**
      * end for both
      */
-    public function send(string $message)
+    public function send(string $message): void
     {
         $notifier = new EmailNotifier();
         $notifier->send($message);
