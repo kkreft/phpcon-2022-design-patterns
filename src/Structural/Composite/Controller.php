@@ -19,7 +19,7 @@ final class Controller
         ];
 
         $totalSize = 0;
-        $directory = new RecursiveDirectoryIterator('/src/Structural/Composite/data');
+        $directory = new RecursiveDirectoryIterator(dirname(__FILE__) . '/data');
         foreach (new RecursiveIteratorIterator($directory) as $file) {
             if($file->isFile()) {
                 $totalSize += $file->getSize();
