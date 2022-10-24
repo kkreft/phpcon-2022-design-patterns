@@ -9,6 +9,7 @@ use DesignPatterns\Structural\Decorator\SimpleCache\Database\DataSource;
 final class Controller
 {
     private ProductProvider $productProvider;
+    private const USE_CACHE = false;
 
     public function __construct() {
         $this->productProvider = new BaseProduct(new DataSource());
@@ -16,11 +17,10 @@ final class Controller
 
     public function getProductInfo(int $productId): void
     {
-        echo json_encode($this->productProvider->getDetails($productId));
-    }
-
-    public function getProductInfoUsingCache(int $productId): void
-    {
-        echo json_encode($this->productProvider->getDetails($productId));
+        if (self::USE_CACHE === false) {
+            echo json_encode($this->productProvider->getDetails($productId));
+        } else {
+            echo json_encode($this->productProvider->getDetails($productId));
+        }
     }
 }
