@@ -16,6 +16,7 @@
     ],
     "require": {
         "league/csv": "^9.8",
-        "symfony/http-client": "^6.1"
+        "symfony/http-client": "^6.1",
+        "league/climate": "^3.8"
     }
 }
