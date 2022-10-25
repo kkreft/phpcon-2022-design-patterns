@@ -27,10 +27,23 @@ $controller->convert();
 
 /**
  * Adapter
- */
+ *
 
 use DesignPatterns\Structural\Adapter\HttpClient\Controller;
 
 $controller = new Controller();
 $controller->getRicky();
+/**/
+
+/**
+ * Bridge
+ */
+
+use DesignPatterns\Structural\Bridge\Cli\Controller;
+
+$controller = new Controller();
+$controller->red();
+$controller->blue();
+$controller->sweet();
+$controller->you();
 /**/
