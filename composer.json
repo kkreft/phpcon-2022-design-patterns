@@ -14,5 +14,7 @@
             "email": "karol@kreft.net.pl"
         }
     ],
-    "require": {}
+    "require": {
+        "league/csv": "^9.8"
+    }
 }
