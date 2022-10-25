@@ -6,13 +6,12 @@ namespace DesignPatterns\Structural\Composite;
 
 final class Controller
 {
-    private const BASEPATH = '/src/Structural/Composite/data';
-
     public function totalSize(): int
     {
         $config = [
-            self::BASEPATH . '/measured',
-            self::BASEPATH . '/pending',
+//            dirname(__FILE__) . '/data/inprogress',
+            dirname(__FILE__) . '/data/pending',
+            dirname(__FILE__) . '/data/measured',
         ];
 
         $directory = new Directory();

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Composite;
 
+require_once ('Structural/Composite/LocalFileSystemInterface.php');
+
 final class Directory implements LocalFileSystemInterface
 {
     /** @var array|LocalFileSystemInterface[] */
