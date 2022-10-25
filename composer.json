@@ -16,6 +16,8 @@
     ],
     "require": {
         "league/csv": "^9.8",
-        "symfony/http-client": "^6.1"
+        "symfony/http-client": "^6.1",
+        "psr/http-client": "^1.0",
+        "nyholm/psr7": "^1.5"
     }
 }
