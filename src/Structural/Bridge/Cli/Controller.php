@@ -17,12 +17,16 @@ final class Controller
 
     public function red(): void
     {
-        $this->climate->red()->out('Roses are red');
+        $pallet = new StandardPallet();
+        $pallet->print('Roses are red');
     }
 
     public function blue(): void
     {
-        $this->climate->blue()->out('Violets are blue');
+        $pallet = new DynamicPallet();
+        $pallet->setColorImplementation(new RedColor());
+        $pallet->setBackgroundColorImplementation(new BlueBackgroundColor());
+        $pallet->print('Violets are blue');
     }
 
     public function sweet(): void
