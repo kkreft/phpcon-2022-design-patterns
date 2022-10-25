@@ -1,4 +1,7 @@
 <?php
+
+require_once (__DIR__ . '/../vendor/autoload.php');
+
 /**
  * Composite
  *
@@ -14,12 +17,20 @@ var_dump($controller->totalSize());
 
 /**
  * Facade
- */
-
-require_once (__DIR__ . '/../vendor/autoload.php');
+ *
 
 use DesignPatterns\Structural\Facade\CsvToXml\Controller;
 
 $controller = new Controller();
 $controller->convert();
+/**/
 
+/**
+ * Adapter
+ */
+
+use DesignPatterns\Structural\Adapter\HttpClient\Controller;
+
+$controller = new Controller();
+$controller->getRicky();
+/**/
