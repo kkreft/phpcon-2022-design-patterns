@@ -37,7 +37,7 @@ $controller->getRicky();
 
 /**
  * Bridge
- */
+ *
 
 use DesignPatterns\Structural\Bridge\Cli\Controller;
 
@@ -46,4 +46,17 @@ $controller->red();
 $controller->blue();
 $controller->sweet();
 $controller->you();
+/**/
+
+/**
+ * NullObject
+ */
+
+use DesignPatterns\Behavioral\NullObject\WhoIsClara\Controller;
+
+$controller = new Controller();
+//$controller->getRick();
+$controller->getMorty();
+//$controller->getClara();
+
 /**/
