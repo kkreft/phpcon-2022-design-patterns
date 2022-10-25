@@ -56,7 +56,7 @@ use DesignPatterns\Behavioral\NullObject\WhoIsClara\Controller;
 
 $controller = new Controller();
 //$controller->getRick();
-$controller->getMorty();
-//$controller->getClara();
+//$controller->getMorty();
+$controller->getClara();
 
 /**/

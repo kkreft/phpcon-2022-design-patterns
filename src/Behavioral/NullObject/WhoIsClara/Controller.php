@@ -15,16 +15,16 @@ final class Controller
 
     public function getRick(): void
     {
-        var_dump($this->apiClient->getCharacter(Character::RICK));
+        var_dump($this->apiClient->getCharacter(new Rick()));
     }
 
     public function getMorty(): void
     {
-        var_dump($this->apiClient->getCharacter(Character::MORTY));
+        var_dump($this->apiClient->getCharacter(new Rick()));
     }
 
     public function getClara(): void
     {
-        var_dump($this->apiClient->getCharacter(null));
+        var_dump($this->apiClient->getCharacter(new Clara()));
     }
 }

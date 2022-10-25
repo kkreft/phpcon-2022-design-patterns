@@ -16,10 +16,13 @@ final class RickAndMortyApiClient
         $this->client = HttpClient::create();
     }
 
-    public function getCharacter(?Character $character): string
+    public function getCharacter(Character $character): string
     {
-        /** @var HttpClientInterface $client */
+        if ($character->id() < 1) {
+            $character = $this->getDefaultCharacter();
+        }
 
+        /** @var HttpClientInterface $client */
         $response = $this->client->request(
             'GET',
             'https://rickandmortyapi.com/api/character/' . $character->id()
@@ -28,5 +31,10 @@ final class RickAndMortyApiClient
         $content = $response->getContent();
 
         return $content;
+    }
+
+    private function getDefaultCharacter(): Character
+    {
+        return new Rick();
     }
 }
