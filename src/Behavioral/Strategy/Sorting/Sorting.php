@@ -13,10 +13,10 @@ class Sorting implements SortingInterface
         return $toBeSorted;
     }
 
-    public function sortById(array $toBeSorted): array
+    public function sortByCreated(array $toBeSorted): array
     {
         usort($toBeSorted, function($a, $b) {
-            return $a['id'] <=> $b['id'];
+            return $a['created'] <=> $b['created'];
         });
 
         return $toBeSorted;

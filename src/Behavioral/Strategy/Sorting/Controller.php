@@ -13,10 +13,17 @@ final class Controller
         $this->characterProvider = new CharacterProvider();
         $this->sorting = new Sorting();
     }
-    public function sort(): void
+    public function sort(string $sortType): void
     {
         $characters = $this->filter($this->characterProvider->data(4));
-        $characters = $this->sorting->sortByName($characters);
+
+        if ('name' === $sortType) {
+            $characters = $this->sorting->sortByName($characters);
+        }
+
+        if ('id' === $sortType) {
+            $characters = $this->sorting->sortByCreated($characters);
+        }
 
         var_dump($characters);
     }
