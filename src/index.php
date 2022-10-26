@@ -63,7 +63,7 @@ $controller->getMorty();
 
 /**
  * Command - SignIn
- */
+ *
 
 use DesignPatterns\Behavioral\Command\SignIn\Controller;
 
@@ -72,3 +72,14 @@ $controller->signIn('Bob', '123456');
 $controller->signIn('Bob2', '123456');
 
 /**/
+
+/**
+ * Strategy - Sorting
+ */
+
+use DesignPatterns\Behavioral\Strategy\Sorting\Controller;
+
+$controller = new Controller();
+$controller->sort();
+/**/
+
