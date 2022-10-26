@@ -6,7 +6,7 @@ final class Session implements SessionInterface
 {
     private string $id;
 
-    public function __construct(private UserInterface $user)
+    public function __construct(private Authentication $authentication)
     {
         $this->id = uniqid();
     }
@@ -19,11 +19,11 @@ final class Session implements SessionInterface
     public function destroy(): void
     {
         unset($this->id);
-        $this->user = new NullUser();
+        $this->authentication->__destruct();
     }
 
     public function getUser(): UserInterface
     {
-        return $this->user;
+        return $this->authentication->getUser();
     }
 }

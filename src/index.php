@@ -63,7 +63,7 @@ $controller->getMorty();
 
 /**
  * Command - SignIn
- */
+ *
 
 use DesignPatterns\Behavioral\Command\SignIn\Controller;
 use DesignPatterns\Behavioral\Command\SignIn\User;
@@ -74,5 +74,16 @@ $controller->signIn('Bob', '123456');
 
 $controller->signOut(new User('Bob'));
 
-
 /**/
+
+/**
+ * Command - SignIn
+ */
+
+use DesignPatterns\Behavioral\Command\SignIn\QueueController as Controller;
+use DesignPatterns\Behavioral\Command\SignIn\User;
+
+$controller = new Controller();
+//$controller->signIn('Bob', '123456');
+$controller->generateInvoice('Bob', '123456');
+//$controller->signIn('Bob2', '123456');

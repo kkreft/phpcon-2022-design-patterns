@@ -23,4 +23,9 @@ final class Authenticator implements Authentication
         }
         return $this->user;
     }
+
+    public function __destruct()
+    {
+        $this->user = new NullUser();
+    }
 }
