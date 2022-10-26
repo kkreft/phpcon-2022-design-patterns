@@ -66,9 +66,13 @@ $controller->getMorty();
  */
 
 use DesignPatterns\Behavioral\Command\SignIn\Controller;
+use DesignPatterns\Behavioral\Command\SignIn\User;
 
 $controller = new Controller();
 $controller->signIn('Bob', '123456');
-$controller->signIn('Bob2', '123456');
+//$controller->signIn('Bob2', '123456');
+
+$controller->signOut(new User('Bob'));
+
 
 /**/
