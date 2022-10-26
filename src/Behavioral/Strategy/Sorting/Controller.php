@@ -7,23 +7,32 @@ namespace DesignPatterns\Behavioral\Strategy\Sorting;
 final class Controller
 {
     private CharacterProvider $characterProvider;
-    private Sorting $sorting;
+    private SortingContextWithType $sortingContextWithType;
 
     public function __construct() {
         $this->characterProvider = new CharacterProvider();
-        $this->sorting = new Sorting();
+        $this->sortingContextWithType = new SortingContextWithType();
     }
     public function sort(string $sortType): void
     {
         $characters = $this->filter($this->characterProvider->data(4));
 
-        if ('name' === $sortType) {
-            $characters = $this->sorting->sortByName($characters);
+        /**
+         * 1. SortingContextWithName
+         */
+        $characters = $this->sortingContextWithType->executeStrategy($characters, $sortType);
+
+        /**
+         * 2. SortingContext Without
+         *
+        $sortingContext = new SortingContext(SortingFactory::forNameSorting());
+
+        if ($sortType === 'created') {
+            $sortingContext = new SortingContext(SortingFactory::forCreateSorting());
         }
 
-        if ('id' === $sortType) {
-            $characters = $this->sorting->sortByCreated($characters);
-        }
+        $characters = $sortingContext->executeStrategy($characters);
+        /**/
 
         var_dump($characters);
     }

@@ -80,6 +80,6 @@ $controller->signIn('Bob2', '123456');
 use DesignPatterns\Behavioral\Strategy\Sorting\Controller;
 
 $controller = new Controller();
-$controller->sort(sortType: 'created');
+$controller->sort(sortType: 'name');
 /**/
 
