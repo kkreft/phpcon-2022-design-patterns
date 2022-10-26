@@ -50,7 +50,7 @@ $controller->you();
 
 /**
  * NullObject
- */
+ *
 
 use DesignPatterns\Behavioral\NullObject\WhoIsClara\Controller;
 
@@ -58,5 +58,17 @@ $controller = new Controller();
 //$controller->getRick();
 $controller->getMorty();
 //$controller->getClara();
+
+/**/
+
+/**
+ * Command - SignIn
+ */
+
+use DesignPatterns\Behavioral\Command\SignIn\Controller;
+
+$controller = new Controller();
+$controller->signIn('Bob', '123456');
+$controller->signIn('Bob2', '123456');
 
 /**/
