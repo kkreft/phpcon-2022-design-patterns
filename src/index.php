@@ -75,11 +75,25 @@ $controller->signIn('Bob2', '123456');
 
 /**
  * Strategy - Sorting
- */
+ *
 
 use DesignPatterns\Behavioral\Strategy\Sorting\Controller;
 
 $controller = new Controller();
 $controller->sort(sortType: 'created');
+/**/
+
+/**
+ * Strategy - Character Provider
+ */
+
+use DesignPatterns\Behavioral\Strategy\CharacterProvider\Character\PickleRick;
+use DesignPatterns\Behavioral\Strategy\CharacterProvider\Character\Rick;
+use DesignPatterns\Behavioral\Strategy\CharacterProvider\Controller;
+
+$controller = new Controller();
+//$controller->getCharacter(new Rick());
+$controller->getCharacter(new PickleRick());
+
 /**/
 
