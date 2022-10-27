@@ -85,7 +85,7 @@ $controller->sort(sortType: 'created');
 
 /**
  * Strategy - Character Provider
- */
+ *
 
 use DesignPatterns\Behavioral\Strategy\CharacterProvider\Character\PickleRick;
 use DesignPatterns\Behavioral\Strategy\CharacterProvider\Character\Rick;
@@ -94,6 +94,24 @@ use DesignPatterns\Behavioral\Strategy\CharacterProvider\Controller;
 $controller = new Controller();
 //$controller->getCharacter(new Rick());
 $controller->getCharacter(new PickleRick());
+
+/**/
+
+
+/**
+ * Observer - Orders
+ */
+
+use DesignPatterns\Behavioral\Observer\Orders\Controller;
+
+$controller = new Controller();
+$controller->saveOrder([
+    'type' => 'Wzorce Projektowe w PHP',
+    'buyer' => 'Max',
+    'price' => '500.00',
+    'paid' => '0',
+    'createDate' => date('Y-m-d'),
+]);
 
 /**/
 
