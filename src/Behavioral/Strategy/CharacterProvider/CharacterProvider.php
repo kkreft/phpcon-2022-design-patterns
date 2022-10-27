@@ -22,15 +22,4 @@ final class CharacterProvider implements CharacterAPI
 
         return Details::createFromArray($response->toArray());
     }
-
-    public function getCharacterByCurl(Character $character): CharacterInfo
-    {
-        $ch = curl_init("https://rickandmortyapi.com/api/character/{$character->getId()}");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $output = curl_exec($ch);
-
-        curl_close($ch);
-
-        return Details::createFromArray(json_decode($output, true));
-    }
 }
