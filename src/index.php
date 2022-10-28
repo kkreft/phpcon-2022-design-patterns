@@ -52,10 +52,10 @@ $controller->you();
  * NullObject
  */
 
-use DesignPatterns\Behavioral\NullObject\WhoIsClara\Controller;
-
-$controller = new Controller();
-$controller->getCharacter(100);
+//use DesignPatterns\Behavioral\NullObject\WhoIsClara\Controller;
+//
+//$controller = new Controller();
+//$controller->getCharacter(100);
 //$controller->getClara();
 //$controller->getClara();
 
@@ -68,14 +68,14 @@ $controller->getCharacter(100);
 use DesignPatterns\Behavioral\Command\SignIn\Controller;
 
 $controller = new Controller();
-$controller->signIn('Bob', '123456');
-$controller->signIn('Bob2', '123456');
-
+//$controller->signIn('Bob', '123456');
+//$controller->signIn('Bob2', '123456');
+$controller->loginAndLogut('Bob', '123456');
 /**/
 
 /**
  * Strategy - Sorting
- *
+
 
 use DesignPatterns\Behavioral\Strategy\Sorting\Controller;
 
@@ -92,7 +92,7 @@ use DesignPatterns\Behavioral\Strategy\CharacterProvider\Character\Rick;
 use DesignPatterns\Behavioral\Strategy\CharacterProvider\Controller;
 
 $controller = new Controller();
-//$controller->getCharacter(new Rick());
+$controller->getCharacter(new Rick());
 $controller->getCharacter(new PickleRick());
 
 /**/
@@ -100,7 +100,7 @@ $controller->getCharacter(new PickleRick());
 
 /**
  * Observer - Orders
- *
+ */
 
 use DesignPatterns\Behavioral\Observer\Orders\Controller;
 

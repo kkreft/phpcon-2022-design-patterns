@@ -11,16 +11,14 @@ final class Controller
     public function __construct()
     {
         $this->orderManager = new OrderManager();
-        $this->stock = new Stock();
-        $this->emailNotifier = new EmailNotifier();
+
+        $this->orderManager->attach(new Stock());
+        $this->orderManager->attach(new EmailNotifier());
     }
 
     public function saveOrder(array $orderData): void
     {
         $order = new Workshop($orderData);
         $this->orderManager->persistOrder($order);
-
-        $this->stock->decrease();
-        $this->emailNotifier->notify();
     }
 }

@@ -4,26 +4,27 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Strategy\Sorting;
 
+use Symfony\Component\HttpClient\Retry\GenericRetryStrategy;
+
 final class Controller
 {
     private CharacterProvider $characterProvider;
-    private Sorting $sorting;
+    private SortingContext $sortingContext;
 
     public function __construct() {
         $this->characterProvider = new CharacterProvider();
-        $this->sorting = new Sorting();
+        $this->sortingContext = new SortingContext();
     }
     public function sort(string $sortType): void
     {
         $characters = $this->filter($this->characterProvider->data(4));
 
-        if ('name' === $sortType) {
-            $characters = $this->sorting->sortByName($characters);
-        }
+        match ($sortType) {
+            'created' => $this->sortingContext->setStrategy(new SortingByCreated()),
+            'name' => $this->sortingContext->setStrategy(new SortingByName())
+        };
 
-        if ('id' === $sortType) {
-            $characters = $this->sorting->sortByCreated($characters);
-        }
+        $this->sortingContext->executeStrategy($characters);
 
         var_dump($characters);
     }

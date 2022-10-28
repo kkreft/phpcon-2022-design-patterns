@@ -10,4 +10,9 @@ final class Rick implements Character
     {
         return 1;
     }
+
+    public function sameAs(Character $character): bool
+    {
+        return $this->getId() === $character->getId();
+    }
 }

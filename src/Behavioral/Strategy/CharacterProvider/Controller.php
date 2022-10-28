@@ -8,29 +8,15 @@ use Symfony\Component\HttpClient\HttpClient;
 
 final class Controller
 {
-    private CharacterProvider $characterProvider;
-
-    public function __construct() {
-        $this->characterProvider = new CharacterProvider(HttpClient::create());
-    }
     public function getCharacter(Character $character): void
     {
+        $characterProvider = new CharacterProvider(
+            Factory::create($character)
+        );
 //        $characterInfo = $this->characterProvider->getCharacter($character);
-        $characterInfo = $this->characterProvider->getCharacterByCurl($character);
+        $characterInfo = $characterProvider->getCharacter($character);
 
         var_dump($characterInfo);
     }
 
-    private function filter(array $characters): array
-    {
-        return array_map(
-            function($character) {
-                return [
-                    'id' => $character['id'],
-                    'name' => $character['name'],
-                    'created' => $character['created']
-                ]; },
-            $characters
-        );
-    }
 }
