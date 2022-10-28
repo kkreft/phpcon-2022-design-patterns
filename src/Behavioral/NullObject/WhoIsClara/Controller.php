@@ -13,18 +13,10 @@ final class Controller
         $this->apiClient = new RickAndMortyApiClient();
     }
 
-    public function getRick(): void
+    public function getCharacter(int $characterId): void
     {
-        var_dump($this->apiClient->getCharacter(Character::RICK));
-    }
+        $character = (new CharacterFactory())($characterId);
 
-    public function getMorty(): void
-    {
-        var_dump($this->apiClient->getCharacter(Character::MORTY));
-    }
-
-    public function getClara(): void
-    {
-        var_dump($this->apiClient->getCharacter(null));
+        var_dump($this->apiClient->getCharacter($character)); //Fajne :)
     }
 }

@@ -12,15 +12,16 @@ final class Controller
     private const USE_CACHE = false;
 
     public function __construct() {
-        $this->productProvider = new BaseProduct(new DataSource());
     }
 
     public function getProductInfo(int $productId): void
     {
-        if (self::USE_CACHE === false) {
-            echo json_encode($this->productProvider->getDetails($productId));
-        } else {
-            echo json_encode($this->productProvider->getDetails($productId));
+        $productProvider = new BaseProduct(new DataSource());
+
+        if (self::USE_CACHE === true) {
+           $productProvider = new CacheProductProvider($productProvider);
         }
+
+        echo json_encode($productProvider->getDetails($productId));
     }
 }

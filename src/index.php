@@ -12,7 +12,7 @@ use DesignPatterns\Structural\Composite\Controller;
 
 $controller = new Controller();
 var_dump($controller->totalSize());
- *
+ /*
  */
 
 /**
@@ -50,13 +50,13 @@ $controller->you();
 
 /**
  * NullObject
- *
+ */
 
 use DesignPatterns\Behavioral\NullObject\WhoIsClara\Controller;
 
 $controller = new Controller();
-//$controller->getRick();
-$controller->getMorty();
+$controller->getCharacter(100);
+//$controller->getClara();
 //$controller->getClara();
 
 /**/
@@ -100,7 +100,7 @@ $controller->getCharacter(new PickleRick());
 
 /**
  * Observer - Orders
- */
+ *
 
 use DesignPatterns\Behavioral\Observer\Orders\Controller;
 
@@ -113,5 +113,12 @@ $controller->saveOrder([
     'createDate' => date('Y-m-d'),
 ]);
 
-/**/
+/**
 
+$controller = new \DesignPatterns\Structural\Decorator\Notification\Controller();
+$controller->send('message');
+ /**/
+/**
+$controller = new \DesignPatterns\Structural\Decorator\SimpleCache\Controller();
+var_dump($controller->getProductInfo(2));
+/**/

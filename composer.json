@@ -19,6 +19,8 @@
         "symfony/http-client": "^6.1",
         "league/climate": "^3.8",
       "ext-curl": "*",
-        "league/event": "^3.0"
+        "league/event": "^3.0",
+        "nyholm/psr7": "^1.5",
+        "psr/http-client": "^1.0"
     }
 }

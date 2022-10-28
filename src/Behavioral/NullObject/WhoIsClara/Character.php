@@ -2,16 +2,10 @@
 
 namespace DesignPatterns\Behavioral\NullObject\WhoIsClara;
 
-enum Character {
-    case RICK;
-    case MORTY;
+interface Character {
+    public const DEFAULT = 1;
+    public const RICK = 1;
+    public const MORTY = 2;
 
-    public function id(): string
-    {
-        return match($this)
-        {
-            Character::RICK => 1,
-            Character::MORTY => 2,
-        };
-    }
+    public function getId(): int;
 }

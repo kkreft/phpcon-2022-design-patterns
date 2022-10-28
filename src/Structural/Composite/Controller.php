@@ -9,23 +9,23 @@ use RecursiveIteratorIterator;
 
 final class Controller
 {
-    private const BASEPATH = '/src/Structural/Composite/data';
 
     public function totalSize(): int
     {
         $config = [
-            self::BASEPATH . '/measured',
-            self::BASEPATH . '/pending',
+            dirname(__FILE__) . '/data/measured',
+            dirname(__FILE__) . '/data/inprogress',
+            dirname(__FILE__) . '/data/pending',
         ];
 
-        $totalSize = 0;
-        $directory = new RecursiveDirectoryIterator(dirname(__FILE__) . '/data');
-        foreach (new RecursiveIteratorIterator($directory) as $file) {
-            if($file->isFile()) {
-                $totalSize += $file->getSize();
-            }
+        $tree = new Tree();
+
+        foreach ($config as $item) {
+            $tree->addElement(new File($item));
         }
 
-        return $totalSize;
+        //return $tree->getSize();
+        var_dump(
+            (new File( dirname(__FILE__) . '/data/pending'))->getSize());
     }
 }

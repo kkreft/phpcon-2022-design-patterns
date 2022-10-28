@@ -8,6 +8,7 @@ final class EmailNotifier implements Notifier
 {
     public function send(string $message): void
     {
-        // send email logic
+        echo __METHOD__ . ': ' . $message . "\n";
+
     }
 }
